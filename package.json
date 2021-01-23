@@ -4,8 +4,10 @@
     "private": true,
     "devDependencies": {
         "@bazel/bazelisk": "latest",
+        "@bazel/buildifier": "latest",
         "@bazel/ibazel": "latest",
-        "@bazel/buildifier": "latest"
+        "purescript": "0.13.8",
+        "purescript-psa": "0.7.3"
     },
     "scripts": {
         "build": "bazel build //...",

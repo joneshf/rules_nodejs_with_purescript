@@ -1,0 +1,29 @@
+load(
+    "@npm//purescript-psa:index.bzl",
+    "psa",
+)
+
+filegroup(
+    name = "sources",
+    srcs = [
+        "Bar.purs",
+    ],
+    visibility = [
+        "//:__subpackages__",
+    ],
+)
+
+psa(
+    name = "output",
+    args = [
+        "--purs=$(execpath //:node_modules/.bin/purs)",
+        "$(execpaths //foo:sources)",
+        "$(execpaths :sources)",
+    ],
+    data = [
+        "//:node_modules/.bin/purs",
+        "//foo:sources",
+        ":sources",
+    ],
+    output_dir = True,
+)
